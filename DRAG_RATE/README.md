@@ -7,7 +7,7 @@ Starting from the files I received from Eleonore and that she directly got from 
 
 - <ins>dataALL_40sub.mat</ins> (all subjects)
 - <ins>dataALL_39sub.mat</ins> (excluding sub 15 ANOSMIC who did not perform the task well)
-- <ins><ins>dataALL_37sub.mat</ins> (excluding sub 15 ANOSMIC + sub 4 and 10 ANOSMIC who did not know the meaning of the word Encens)
+- <ins>dataALL_37sub.mat</ins> (excluding sub 15 ANOSMIC + sub 4 and 10 ANOSMIC who did not know the meaning of the word Encens)
 
 ### Drag_rate values for each subject
 From the raw data .mat files I extracted for each subject the values assigned to each word in this task and I created some .mat files including only those values:
