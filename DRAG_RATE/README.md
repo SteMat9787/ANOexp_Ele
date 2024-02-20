@@ -20,7 +20,7 @@ From the raw data .mat files I extracted for each subject the values assigned to
 From the previous .mat files I created 1 DSM for each subject based on his/her own valence values. As dissimilarity distance I used the difference of valence assigned between each pair of words.
 The DSMs are stored in vector shape with 55 entries when all 11 words are used [n=((11 X 11)-11)/2], and 45 when Encens is excluded [n=((10 X 10)-10)/2].
 
-- <u>drag_rate_allSUB_noENCENS_39sub_DSMvec_All_words.mat</u>;
+- <ins>drag_rate_allSUB_noENCENS_39sub_DSMvec_All_words.mat</ins>;
 - drag_rate_allSUB_siENCENS_37sub_DSMvec_All_words.mat;
 - drag_rate_allSUB_siENCENS_39sub_DSMvec_All_words.mat;
 
