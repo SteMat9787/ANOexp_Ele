@@ -106,3 +106,19 @@ In the second part of the script the same procedure is performed 10000 times aft
 This script gives as an output a .mat file: e.g. <ins>SiEncens_Max_corr_DSMs_DRAG-RATE10000iter_39sub</ins> stored in the folder: <ins>Inter_Intra_Corr_results/Max_correlation_allWORDS</ins>.
 Inside the same folder there is also a script:
 - <ins>visualize_and_compute_statistic_within.m</ins> : with this script you can visualize the null distribution, the real values of Corr and compute the p value (it will be printed in the command window)
+
+### Decoding analysis: can we decode the group label from the DSMs?
+All files related to this analysis are in the folder: <ins>Decoding_Analyses</ins>.
+The script to run it is:
+- <ins>Decode_DSMmatrices_DRAG_RATE_SC_AC_permutation.m</ins>
+ --> to run this script you need:
+  1. the data in DSMs format
+  2. the <ins>ds.mat</ins> file (template to organize the data for teh decoding in CosmoMVPA style).
+
+ To run this analysis there is a "problem" to solve. We need the same number of subject in both groups but we have 20 in Con and 19 in Ano. I only ran this analysis for all words (including Encens) and for all sub (only excluding sub 15 ano.
+ I ran the decoding 20 times, each time excluding 1 different control (so I have evry time 19 sub in each group). 
+ For each time I ran it, I also run 1000 permutation after shuffling the group label (i.e. assigning randomly each sub to one group). 
+ The results are in the folder <ins>Results_perm_DRAG_RATE</ins>.
+ Inside this folder there are 2 scripts:
+ - <ins>Merge_together_the_iterations.m</ins> to average the 19 accuracy values (and the 1000 permutation values) in each of the 20 iterations --> this script creates the file <ins>Perm_SC_AC20000_39sub_ALL_words_20iterations</ins>
+ - <ins>visualize_and_compute_statistic_within.m</ins> to visualize the null distribution, the average accuracy value and compute the p value. 
