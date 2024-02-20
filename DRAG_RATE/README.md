@@ -57,5 +57,11 @@ The second possibility is to plot the values averaged for LOW, MIDDLE and HIGH o
      2. The function: <ins>compute_density.m</ins>;
      3. The function: <ins>make_DotPlot_LOW_MIDDLE_HIGH.m</ins>;
 
+ ### ANOVA(s) based on these values Group * Olfa_level (2 * 3) or Group * Words (2 * 11).
+ These data are in the folder:
+ - <ins>ANOVA</ins> --> whithin this folder you can find:
+   - the .csv file where all values are included after excluded outliers: <ins>DragandRATE_withNanFOR_OUTLIERS.csv</ins> --> values deviating from the group average >2.5 standard deviations are considered outliers
+   - the Jasp file in which the ANOVAs are stored: <ins>DragandRATE_withNanFOR_OUTLIERS.jasp</ins>
+   
  
  
