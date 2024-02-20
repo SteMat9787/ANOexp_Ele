@@ -116,23 +116,4 @@ end
     
 end %for isub
      
-% all_CON=b_all; 
-% %compute the average for the ANOSMIC
-% % figure();
-% % set(gcf,'color','w'); %to have white background
-% 
-% a_meanALL=mean(a_all,2);
-% b_meanALL=mean(b_all,2);
-% 
-% DSMcmd_all=[a_meanALL,b_meanALL];
-% text(DSMcmd_all((1:length(DSMcmd_all)),1),DSMcmd_all((1:length(DSMcmd_all)),2),labels(1:length(DSMcmd_all)),'Color',Col_B,'FontName','Avenir','FontSize',26,'FontWeight','Bold');
-% % text(DSMcmd((4:6),1),DSMcmd((4:6),2),labels(4:6),'Color',[[153,115,222]/256],'FontName','Avenir','FontSize',10,'FontWeight','Bold');
-% % text(DSMcmd((7:9),1),DSMcmd((7:9),2),labels(7:9),'Color',[[90,166,128]/256],'FontName','Avenir','FontSize',10,'FontWeight','Bold');
-% mx=(max(abs(DSMcmd_all(:)))+0.1);
-% xlim([-0.05 2]); ylim([0 1]);
-% ax=gca;
-%          set(ax,'FontName','Avenir','FontSize',16, 'FontWeight','bold',...
-%         'LineWidth',2,'TickDir','out', 'TickLength', [0,0]);
 
-    
-%     save('drag_rate_39SUB','all_CON','all_ANO');

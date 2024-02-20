@@ -9,6 +9,7 @@ meanANO_dsm=squareform(Mean_ANO);
 %%%To visualize the matrices
  clims=[0 1.4];
 figure();
+set(gcf,'color','w');
 subplot(3,2,1); imagesc((meanCON_dsm),clims); colorbar;
 % set(gca, 'YTick',(3.5:6:30),'YTickLabel',labels);
 % set(gca, 'XTick',(3.5:6:30),'XTickLabel',labels);
