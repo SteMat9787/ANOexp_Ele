@@ -1,6 +1,6 @@
 # DRAG RATE: explanation of all files and folders
 
-## Data files
+## DATA FILES
 
 ### Raw Data into .mat files
 Starting from the files I received from Eleonore and that she directly got from the platform where she ran the experiment I organized the data in .mat files.
@@ -20,12 +20,42 @@ From the raw data .mat files I extracted for each subject the values assigned to
 From the previous .mat files I created 1 DSM for each subject based on his/her own valence values. As dissimilarity distance I used the difference of valence assigned between each pair of words.
 The DSMs are stored in vector shape with 55 entries when all 11 words are used [n=((11 X 11)-11)/2], and 45 when Encens is excluded [n=((10 X 10)-10)/2].
 
-- drag_rate_allSUB_noENCENS_39sub_DSMvec_All_words.mat;
+- <u>drag_rate_allSUB_noENCENS_39sub_DSMvec_All_words.mat<u>;
 - drag_rate_allSUB_siENCENS_37sub_DSMvec_All_words.mat;
 - drag_rate_allSUB_siENCENS_39sub_DSMvec_All_words.mat;
 
 To create the dissimilarity matrices I used the script:
 - create_RDM.m
  --> This script only need one of the 3 drag_rate files to run.
-  
 
+## ANALYSES & VISUALIZATION OF DRAG_RATE VALUES
+
+### Visualization of how the words have been evaluated 
+
+First, you can visualize the average position for each group. The sccript is:
+- Extract_positions_plotONtheSAMEgraph.m --> to run this script you only need the data in the drag_rate values format;
+
+Second, you can visualize the average position for each subject (one figure per group). 
+this script will not plot the woords but the number from 1 to 11, assigned to each word from low to high valence. E.g 11==Encens). The script is:
+ - Extract_positions_plotONtheSAMEgraph_eachSUB.m  --> to run this script yoou need the data in the drag_rate values format;
+ 
+
+### Visualization of the average values for each Group (each subject is a dot)
+There are two possible ways of visualizing these values:
+
+The first possibility is to plot every words for a total of 10 or 11 words plotted in the same graph. The script to use is:
+- visualize_DotPlot_allWords.m
+     --> to run this script you need:
+     1. The data in the drag_rate values format;
+     2. The function: compute_density;
+     3. The function: make_DotPlot.m;
+
+The second possibility is to plot the values averaged for LOW, MIDDLE and HIGH olfaction valence words. The script to use is:
+- visualize_DotPlot_LOW_MID_HIGH.m
+  --> to run this script you need:
+     1. The data in the drag_rate values format;
+     2. The function: compute_density;
+     3. The function: make_DotPlot_LOW_MIDDLE_HIGH.m;
+
+ 
+ 
