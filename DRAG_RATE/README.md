@@ -51,7 +51,7 @@ The first possibility is to plot every words for a total of 10 or 11 words plott
      3. The function: <ins>make_DotPlot.m</ins>;
 
 The second possibility is to plot the values averaged for LOW, MIDDLE and HIGH olfaction valence words. The script to use is:
-- visualize_DotPlot_LOW_MID_HIGH.m
+- <ins>visualize_DotPlot_LOW_MID_HIGH.m</ins>
   --> to run this script you need:
      1. The data in the drag_rate values format;
      2. The function: <ins>compute_density.m</ins>;
