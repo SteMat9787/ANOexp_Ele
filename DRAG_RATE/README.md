@@ -37,7 +37,10 @@ First, you can visualize the average position for each group. The sccript is:
 
 Second, you can visualize the average position for each subject (one figure per group). 
 this script will not plot the woords but the number from 1 to 11, assigned to each word from low to high valence. E.g 11==Encens). The script is:
- - <ins>Extract_positions_plotONtheSAMEgraph_eachSUB.m</ins>  --> to run this script yoou need the data in the drag_rate values format;
+ - <ins>Extract_positions_plotONtheSAMEgraph_eachSUB.m</ins>
+   --> to run this script you need:
+   1. the data in the drag_rate values format;
+   2. the file <ins>pm_data_no15.m</ins>
  
 
 ### Visualization of the average values for each Group (each subject is a dot)
@@ -64,4 +67,42 @@ The second possibility is to plot the values averaged for LOW, MIDDLE and HIGH o
    - the Jasp file in which the ANOVAs are stored: <ins>DragandRATE_withNanFOR_OUTLIERS.jasp</ins>
    
  
+ ## ANALYSES & VISUALIZATION OF DSMs VALUES
+
+ ### Visualization of DSMs, multidimentional scaling and dendrogram/clustering analysis
  
+ Visualization of Group Average DSMs, multidimensional scaling MDS (not really relevant for this task since there is only one relevant dimension) and dendrogram/clustering. This ccan be done with the script:
+ - <ins>visualize_DSM_MDS_dendrogram.m</ins> --> to run this script you only needd the data in DSMs format
+
+Visualization of dendrogram for each Sub. Use the script:
+- <ins>visualize_dendrogram_allSub.m</ins> --> to run it you just need the data in the DSM format
+
+### Between Groups Correlation
+Compute the correlation between the DSMs of Control & Anosmic using this script:
+- <ins>extract_betweenGroup_correlationDSMs.m</ins> --> to run it you only need thee data in DSM format
+This script compute the Spearman correlation betweeen the DSMs of the 2 groups in this way:
+1. Correlate the DSM of each anosmic subject with the mean DSM of the control group and average all thes values
+2. Correlate the DSM of each control subject with the mean DSM of the anosmic group and average all thes values
+3. Average the 2 values obtained from point 1 and 2 --> this is the final value representing the between groups Correlation
+
+In the second part of the script the same procedure is performed 10000 times after shuffling the DSMs' label at the start of each iteration: this 10000 values are used to build a null distribution and compute statistics.
+
+This script gives as an output a .mat file: e.g. <ins>siEncens_ITER_BetweenGr_corrDSMsDRAG-RATE_39sub</ins> stored in the folder: <ins>Inter_Intra_Corr_results/Between_gr_corr_allWORDS</ins>.
+Inside the same folder there is also a script:
+- <ins>visualize_and_compute_statistic_within.m</ins> : with this script you can visualize the null distribution, the real value of Corr and compute the p value (it will be printed in the command window together with the mean Corr value)
+
+### Within Group Correlation, aka maxCorr
+Compute the correlation between the DSMs of each subject with the rest of his/heer own group, for bpth group separately using:
+- <ins>extract_max_corr_intraGroup_iteration_DSMs.m</ins> --> to run it you only need thee data in DSM format
+The within group correlation gives an idea of the stability of the representation within each group, across subjects.
+
+This script compute the within group correlation in this way:
+1. Correlate the DSM of each anosmic subject with the mean DSM of the rest of the same group and average this value = withing Anosmic Gr Correlation
+2. Correlate the DSM of each control subject with the mean DSM of the rest of the same group and average this value = withing Control Gr Correlation
+3. To compute the statistical difference between the 2 group (i.e. is the representation more stable in one group compared to the other?) we finally compute the difference between the 2 values obtained in point 1 and 2
+
+In the second part of the script the same procedure is performed 10000 times after shuffling the DSMs' label at the start of each iteration: this 10000 values are used to build a null distribution and compute statistics.
+
+This script gives as an output a .mat file: e.g. <ins>SiEncens_Max_corr_DSMs_DRAG-RATE10000iter_39sub</ins> stored in the folder: <ins>Inter_Intra_Corr_results/Max_correlation_allWORDS</ins>.
+Inside the same folder there is also a script:
+- <ins>visualize_and_compute_statistic_within.m</ins> : with this script you can visualize the null distribution, the real values of Corr and compute the p value (it will be printed in the command window)
