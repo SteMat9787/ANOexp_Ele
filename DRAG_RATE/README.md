@@ -114,7 +114,7 @@ The script to run it is:
 - <ins>Decode_DSMmatrices_DRAG_RATE_SC_AC_permutation.m</ins>
  --> to run this script you need:
   1. the data in DSMs format
-  2. the <ins>ds.mat</ins> file (template to organize the data for teh decoding in CosmoMVPA style).
+  2. the <ins>ds.mat</ins> file (template to organize the data for the decoding in CosmoMVPA style).
 
  To run this analysis there is a "problem" to solve. We need the same number of subject in both groups but we have 20 in Con and 19 in Ano. I only ran this analysis for all words (including Encens) and for all sub (only excluding sub 15 ano.
  I ran the decoding 20 times, each time excluding 1 different control (so I have evry time 19 sub in each group). 
