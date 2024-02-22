@@ -67,6 +67,7 @@ The second possibility is to plot the values averaged for LOW, MIDDLE and HIGH o
  - <ins>ANOVA</ins> --> whithin this folder you can find:
    - the .csv file where all values are included after excluded outliers: <ins>DragandRATE_withNanFOR_OUTLIERS.csv</ins> --> values deviating from the group average >2.5 standard deviations are considered outliers
    - the Jasp file in which the ANOVAs are stored: <ins>DragandRATE_withNanFOR_OUTLIERS.jasp</ins>
+   - the Jasp file with a Group * Olfa_level ANOVA in which Riz is considered as middle and not low level: <ins>DragandRATE_withNanFOR_OUTLIERS_RizMedium.jasp</ins>
    
  
  ## ANALYSES & VISUALIZATION OF DSMs VALUES
