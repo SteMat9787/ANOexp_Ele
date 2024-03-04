@@ -1,10 +1,10 @@
 
 load ('drag_rate_39SUB_allWords');
 %     
-Ex_incense_sub4and10=1 %put 0 if you want to keep incens for all sub, 1 if you want too exclude it only for sub 4 and 10
+Ex_incense_sub4and10=0 %put 0 if you want to keep incens for all sub, 1 if you want too exclude it only for sub 4 and 10
 
-nANO=39;
-nCON=20;
+% nANO=39;
+% nCON=20;
 
 all_ANO=all_ANO';
 all_CON=all_CON';
@@ -22,11 +22,17 @@ Incens_vec_ANO=all_ANO(:,11);
 Incens_vec_ANO(10)=[];
 Incens_vec_ANO(4)=[];
 Mean_Incens_without4and10=mean(Incens_vec_ANO);
-%Insert the mean values insteead of thee ooriginal value for incense fpr
+%Insert the mean values insteead of thee original value for incense fpr
 %sub 4 and 10
 all_ANO(4,11)=Mean_Incens_without4and10;
 all_ANO(10,11)=Mean_Incens_without4and10;
 end
+
+%Here I want to reorder the labels from their original order: 
+%labels={'Menthe','Lavande','Chlore','Pierre','Aluminium','Gazon','Assiette','Miel','Pêche','Riz','Incens'};
+%to the new order:
+%XTickLabel={'Assiette','Pierre','Aluminium','Riz','Miel','Pêche','Gazon','Menthe','Lavande','Chlore','Encens'};
+%IMPORTANT: the labels are assigned in the script 'make DotPot.m',
 
 
 labels_idx=[7,4,5,10,8,9,6,1,2,3,11];
