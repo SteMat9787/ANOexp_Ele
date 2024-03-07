@@ -1,4 +1,4 @@
-function  make_DotPlot(data,Gr)
+function  make_DotPlot(data,Gr,shift)
 
 
 %% make a dot plot taking into account the overlap/density of the plot. 
@@ -87,12 +87,14 @@ Transparency=0.7;
 
 %%set other characteristics of the graph
 XTick= 1:11;%size(data,2);
+%%set other characteristics of the graph
+XTick= (1:2:11*2)+(shift/2);% 1:length(ROIs_label);
 %%original order
 %%XTickLabel={'Menthe','Lavande','Chlore','Pierre','Aluminium','Gazon','Assiette','Miel','Pêche','Riz','Encens'};
 %%new order
 XTickLabel={'Assiette','Pierre','Aluminium','Riz','Miel','Pêche','Gazon','Menthe','Lavande','Chlore','Encens'};
 %these go under each column
-xLim=[0,max(XTick)+1];
+xLim=[0,max(XTick)+1+shift/2];
 yLim=[0 1]; %put here your xLim
 FontName='Avenir'; %set the style of the labels
 FontSize=20; %%set the size of the labels
@@ -114,28 +116,28 @@ for i_col=1:length(XTick)
     [new_vec,size]=compute_density(col,density_distance, starting_size);
     data_density=new_vec;
     [row] = length(data_density);
-    xrow = repmat(i_col,row,1);
+    xrow = repmat(i_col+(i_col-1),row,1);
     %plot the marker for each sub (density clustered)
     if filled==0 %%for empty markers
-        scatter(xrow(:), data_density(:),size, shape,'MarkerEdgeColor',Colors(i_col,:),'MarkerEdgeAlpha',Transparency,'LineWidth',LineWidthMarkers,'jitter','on', 'jitterAmount', jitterAmount);
+        scatter(xrow(:)+shift, data_density(:),size, shape,'MarkerEdgeColor',Colors(i_col,:),'MarkerEdgeAlpha',Transparency,'LineWidth',LineWidthMarkers,'jitter','on', 'jitterAmount', jitterAmount);
     elseif filled==1 %%for filled markers
-        scatter(xrow(:), data_density(:),size, shape,'filled','MarkerFaceColor',Colors(i_col,:),'MarkerEdgeColor',Colors(i_col,:),'MarkerEdgeAlpha',Transparency,'MarkerFaceAlpha',Transparency,'LineWidth',LineWidthMarkers,'jitter','on', 'jitterAmount', jitterAmount);
+        scatter(xrow(:)+shift, data_density(:),size, shape,'filled','MarkerFaceColor',Colors(i_col,:),'MarkerEdgeColor',Colors(i_col,:),'MarkerEdgeAlpha',Transparency,'MarkerFaceAlpha',Transparency,'LineWidth',LineWidthMarkers,'jitter','on', 'jitterAmount', jitterAmount);
     end
     hold on;
     %%plot the mean
-    plot([xrow(1,1)-LineLength; xrow(1,1) + LineLength], repmat(mean(data(:,i_col), 1), 2, 1),'LineWidth',LineWidthMean,'Color',Colors(i_col,:));
+    plot([xrow(1,1)-LineLength+shift; xrow(1,1) + LineLength+shift], repmat(mean(data(:,i_col), 1), 2, 1),'LineWidth',LineWidthMean,'Color',Colors(i_col,:));
     
     if error_bar==1
     %%plot the st. err
     stDev=std(col); %compute the standard deviation
     stErr=stDev/sqrt(length(col)); %compute the standard error
-    plot([xrow(1,1); xrow(1,1)], [mean(data(:,i_col))+stErr mean(data(:,i_col))-stErr],'k','LineWidth',3)%,'Color',Colors(i_col,:));
+    plot([xrow(1,1)+shift; xrow(1,1)+shift], [mean(data(:,i_col))+stErr mean(data(:,i_col))-stErr],'k','LineWidth',3)%,'Color',Colors(i_col,:));
     %%plot the 2 small line at the endpoint of the error bar
     if end_points==1
     hold on
-    plot([xrow(1,1)-0.05 xrow(1,1)+0.05],[mean(data(:,i_col))+stErr mean(data(:,i_col))+stErr],'k','LineWidth',3)%,'Color',Colors(i_col,:));
+    plot([xrow(1,1)-0.05+shift xrow(1,1)+0.05+shift],[mean(data(:,i_col))+stErr mean(data(:,i_col))+stErr],'k','LineWidth',3)%,'Color',Colors(i_col,:));
     hold on
-    plot([xrow(1,1)-0.05 xrow(1,1)+0.05],[mean(data(:,i_col))-stErr mean(data(:,i_col))-stErr],'k','LineWidth',3)%,'Color',Colors(i_col,:));
+    plot([xrow(1,1)-0.05+shift xrow(1,1)+0.05+shift],[mean(data(:,i_col))-stErr mean(data(:,i_col))-stErr],'k','LineWidth',3)%,'Color',Colors(i_col,:));
     end %if end_points
     end %if error bar
 end %for col(umns) number

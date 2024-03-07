@@ -50,9 +50,11 @@ all_CON=new_CON;
 
 data=all_ANO;
 Gr=2;
-make_DotPlot(data,Gr);
+shift=0;
+make_DotPlot(data,Gr,shift);
 hold on
 
 data=all_CON;
 Gr=1;
-make_DotPlot(data,Gr);
+shift=0.5;
+make_DotPlot(data,Gr,shift);
