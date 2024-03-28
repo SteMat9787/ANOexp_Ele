@@ -27,7 +27,14 @@ To create an visualize the dissimilarity matrices I used the script:
 
 ## DATA VISUALIZATION
 ### Dissimilarity Matrices representation
-See above.
+See above for cassica DSM representation (same script as for creating the dsm files);
+
+These two scripts plot the DSMs changing the order of the conditions based on their similarities. It is useful in order to appreciate possible clustering of the conditions:
+- <ins>REORDER_DSM_Olfa_basedONsimilarity.m<ins>
+- <ins>REORDER_DSM_Neutre_basedONsimilarity.m<ins>
+
+To run these script only the file <ins>DSM_Gr_mean.mat<ins> with the mean value of each group (20 sub) is neeeded.
+
 
 ### Multidimentional scaling
 Script for MDS is <ins>Plot_MDS.m<ins>
