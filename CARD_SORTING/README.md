@@ -1,4 +1,4 @@
-# DRAG RATE: explanation of all files and folders
+# CARD_SORTING: explanation of all files and folders
 A summary .key of all these results and analyses can be found [here](https://www.dropbox.com/scl/fi/mtfw6pfnipusdtctxlgrd/Results_withAndWithoutSomewords_sub_Feb24.key?rlkey=6d0rtp7dtqb62ntntiiw4jada&dl=0).
 A description of the words used as stimuli is [here](https://www.dropbox.com/scl/fi/ic678hfzf1d7gg890crxu/Tableaux_Stimuli_EleonoreNov23.pdf?rlkey=gsn6u0q470tryhl50d5jnwiru&dl=0).
 
