@@ -53,6 +53,20 @@ This script need:
 - <ins>DSM_Gr_mean.mat<ins> with the mean value of each group
 
 
+## ANALYSES
+### Decoding analysis: can we decode the group label from the DSMs?
+All files related to this analysis are in the folder: <ins>Decoding_Analyses</ins>.
+The script to run it is:
+- <ins>Decode_DSMmatrices_CARD_SORTING_NEUTRE_SC_AC_permutation.m</ins>
+- <ins>Decode_DSMmatrices_CARD_SORTING_OLFA_SC_AC_permutation.m</ins>
+ --> to run this script you need:
+  1. the data in DSMs format
+  2. the <ins>ds.mat</ins> file (template to organize the data for the decoding in CosmoMVPA style).
+
+ The results are in the folder <ins>Results_perm_CARD_SORTING_NEUTRE</ins> and <ins>Results_perm_CARD_SORTING_OLFA</ins>.
+ Inside this folder there is 1 scripts:
+
+ - <ins>visualize_and_compute_statistic_within.m</ins> to visualize the null distribution, the real accuracy value and compute the p value. 
 
   
 
