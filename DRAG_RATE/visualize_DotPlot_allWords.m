@@ -1,8 +1,8 @@
 
-load ('drag_rate_39SUB_allWords');
+load ('drag_rate_37SUB_allWords');
 %     
-Ex_incense_sub4and10=0 %put 0 if you want to keep incens for all sub, 1 if you want too exclude it only for sub 4 and 10
-
+Ex_incense_sub4and10=0; %put 0 if you want to keep incens for all sub, 1 if you want to exclude it only for sub 4 and 10
+Ex_incense_all=0; %put 0 if you want to keep incens for all sub, 1 if you want to exclude it fo al subjects
 % nANO=39;
 % nCON=20;
 
@@ -14,7 +14,7 @@ all_CON=all_CON';
 if Ex_incense_sub4and10==1
 %%%%I add this section to exclude incens only from sun 4 and 10 (they did
 %%%%not know the meaning)
-%%Only for the representation purpose I will inseert the 2 subject as
+%%Only for the representation purpose I will insert the 2 subject as
 %%average value computed without including them in the group)
 %Extract the values for ANO group for incens
 Incens_vec_ANO=all_ANO(:,11);
@@ -26,7 +26,11 @@ Mean_Incens_without4and10=mean(Incens_vec_ANO);
 %sub 4 and 10
 all_ANO(4,11)=Mean_Incens_without4and10;
 all_ANO(10,11)=Mean_Incens_without4and10;
-end
+elseif Ex_incense_all==1
+     %%%%I add this section to exclude incens for all subjects
+    all_ANO(:,11)=[];
+    all_CON(:,11)=[];
+   end
 
 %Here I want to reorder the labels from their original order: 
 %labels={'Menthe','Lavande','Chlore','Pierre','Aluminium','Gazon','Assiette','Miel','Pêche','Riz','Incens'};
@@ -34,8 +38,12 @@ end
 %XTickLabel={'Assiette','Pierre','Aluminium','Riz','Miel','Pêche','Gazon','Menthe','Lavande','Chlore','Encens'};
 %IMPORTANT: the labels are assigned in the script 'make DotPot.m',
 
-
+if Ex_incense_all==1
+labels_idx=[7,4,5,10,8,9,6,1,2,3];
+else
 labels_idx=[7,4,5,10,8,9,6,1,2,3,11];
+end
+
 for order=1:length(labels_idx)
     new_ANO(:,order)=all_ANO(:,labels_idx(order));
 end %for order

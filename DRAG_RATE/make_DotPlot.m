@@ -84,15 +84,21 @@ end
  %Colors=[Col_A;Col_B;Col_C;Col_D];
 %%%set the transparency of the markers
 Transparency=0.7;
+average_data=mean(data);
 
 %%set other characteristics of the graph
-XTick= 1:11;%size(data,2);
+%XTick= 1:length(average_data);
 %%set other characteristics of the graph
-XTick= (1:2:11*2)+(shift/2);% 1:length(ROIs_label);
+XTick= (1:2:length(average_data)*2)+(shift/2);% 1:length(ROIs_label);
 %%original order
 %%XTickLabel={'Menthe','Lavande','Chlore','Pierre','Aluminium','Gazon','Assiette','Miel','Pêche','Riz','Encens'};
 %%new order
+
+if length(average_data)==11
 XTickLabel={'Assiette','Pierre','Aluminium','Riz','Miel','Pêche','Gazon','Menthe','Lavande','Chlore','Encens'};
+elseif length(average_data)==10
+XTickLabel={'Assiette','Pierre','Aluminium','Riz','Miel','Pêche','Gazon','Menthe','Lavande','Chlore'};
+end 
 %these go under each column
 xLim=[0,max(XTick)+1+shift/2];
 yLim=[0 1]; %put here your xLim
